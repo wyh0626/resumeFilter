@@ -60,8 +60,24 @@
 
    * 导航到 工作流 → 导入 DSL 文件
    * 选择 `workflow` 目录下的 `简历筛选助手.yml` 文件
-   * 配置您的 AI API 密钥（支持任何 AI 提供商，不限于 Anthropic）
-3. **开始使用**
+
+   ![导入DSL文件](images/import.png)
+3. **配置 AI 模型**
+
+   导入工作流后，需要配置 AI 模型：
+
+   * 选择模型供应商（支持任何 AI 提供商，如 OpenAI、Anthropic、通义千问等）
+
+   ![选择供应商](images/select_provider.png)
+
+   * 找到 LLM 节点（工作流中的 AI 模型节点）
+
+   ![LLM节点](images/llm_node.png)
+
+   * 选择具体的模型
+
+   ![选择模型](images/select_model.png)
+4. **开始使用**
 
    * 输入岗位描述（JD）
    * 上传候选人简历（支持批量上传）

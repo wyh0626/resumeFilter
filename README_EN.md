@@ -60,8 +60,25 @@ Resume Screener Pro is inspired by [Resume Police](https://github.com/itMrBoy/re
 
    * Navigate to Workflows → Import DSL file
    * Select the workflow file `简历筛选助手.yml` from the `workflow` directory
-   * Configure your AI API key (supports any AI provider, not limited to Anthropic)
-3. **Start Using**
+   
+   ![Import DSL File](images/import.png)
+
+3. **Configure AI Model**
+
+   After importing the workflow, you need to configure the AI model:
+   
+   * Select model provider (supports any AI provider, such as OpenAI, Anthropic, Qwen, etc.)
+   
+   ![Select Provider](images/select_provider.png)
+   
+   * Find the LLM nodes (AI model nodes in the workflow)
+   
+   ![LLM Node](images/llm_node.png)
+   
+   * Select specific model
+   
+   ![Select Model](images/select_model.png)
+4. **Start Using**
 
    * Input job description (JD)
    * Upload candidate resumes (batch upload supported)
