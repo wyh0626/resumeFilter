@@ -1,0 +1,897 @@
+app:
+  description: 简历筛选助手V1- 候选人筛选专家
+  icon: technologist
+  icon_background: '#FFE4E8'
+  mode: workflow
+  name: 简历筛选助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/anthropic:0.1.2@2dc08737661ee7a85c8b8d4f0dcff754607bee4dc19786fc08c9b6eb30fde705
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .PDF
+      - .DOC
+      - .DOCX
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      - document
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: true
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 5
+    opening_statement: 👋 欢迎使用招聘警察！我将帮助你快速、专业地筛选候选人，确保找到最合适的人才。
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 如何使用这个工具？
+    - 筛选标准是什么？
+    - 可以批量处理简历吗？
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1753104059605-source-1754649400795-target
+      selected: false
+      source: '1753104059605'
+      sourceHandle: source
+      target: '1754649400795'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: document-extractor
+      id: 1754649400795-source-1753104068161-target
+      selected: false
+      source: '1754649400795'
+      sourceHandle: source
+      target: '1753104068161'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: document-extractor
+        targetType: if-else
+      id: 1753104068161-source-1754674921341-target
+      selected: false
+      source: '1753104068161'
+      sourceHandle: source
+      target: '1754674921341'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1754674921341-true-1754674996003-target
+      selected: false
+      source: '1754674921341'
+      sourceHandle: 'true'
+      target: '1754674996003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1754674921341-false-1754674996003-target
+      selected: false
+      source: '1754674921341'
+      sourceHandle: 'false'
+      target: '1754674996003'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1754674921341-8d0d7c82-5a65-4a59-a64b-dfb9ece7da5c-1753104215758-target
+      selected: false
+      source: '1754674921341'
+      sourceHandle: 8d0d7c82-5a65-4a59-a64b-dfb9ece7da5c
+      target: '1753104215758'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1754674996003-source-1753104309140-target
+      selected: false
+      source: '1754674996003'
+      sourceHandle: source
+      target: '1753104309140'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1754674921341-1c4b6675-2372-4526-b20a-255e7906341d-17547531701680-target
+      selected: false
+      source: '1754674921341'
+      sourceHandle: 1c4b6675-2372-4526-b20a-255e7906341d
+      target: '17547531701680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1754674921341-243e7640-3c6b-43e4-a1c5-d4e93ea204a6-17547535164570-target
+      selected: false
+      source: '1754674921341'
+      sourceHandle: 243e7640-3c6b-43e4-a1c5-d4e93ea204a6
+      target: '17547535164570'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 17547531701680-source-17547549982060-target
+      source: '17547531701680'
+      sourceHandle: source
+      target: '17547549982060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 17547535164570-source-17547550020340-target
+      source: '17547535164570'
+      sourceHandle: source
+      target: '17547550020340'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1753104215758-source-17547550049610-target
+      source: '1753104215758'
+      sourceHandle: source
+      target: '17547550049610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 输入岗位信息和候选人简历
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 岗位职位描述(JD) - 详细描述招聘需求
+          max_length: 2000
+          options: []
+          required: true
+          type: paragraph
+          variable: JobDescription
+        - allowed_file_extensions:
+          - .pdf
+          - .doc
+          - .docx
+          allowed_file_types:
+          - document
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 候选人简历文件(支持批量上传)
+          max_length: 10
+          options: []
+          required: true
+          type: file-list
+          variable: CandidateResumes
+        - label: 特殊筛选要求(可选)
+          max_length: 500
+          options: []
+          required: false
+          type: paragraph
+          variable: SpecialRequirements
+        - default: 智能快筛 - 30秒快速判断，适合初步筛选
+          label: 分析模式
+          max_length: 48
+          options:
+          - 智能快筛 - 30秒快速判断，适合初步筛选
+          - 深度分析 - 六维度全面评估，适合重点候选人
+          - 面试题设计 - 生成精准面试问题，适合面试准备
+          - 全面分析 - 包含以上所有内容，适合关键岗位
+          required: false
+          type: select
+          variable: AnalysisMode
+      height: 196
+      id: '1753104059605'
+      position:
+        x: 30
+        y: 690
+      positionAbsolute:
+        x: 30
+        y: 690
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 提取简历内容
+        is_array_file: true
+        selected: false
+        title: 简历内容提取器
+        type: document-extractor
+        variable_selector:
+        - '1753104059605'
+        - CandidateResumes
+      height: 120
+      id: '1753104068161'
+      position:
+        x: 698
+        y: 690
+      positionAbsolute:
+        x: 698
+        y: 690
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 核心分析引擎
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: claude-sonnet-4-20250514
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: system-prompt
+          role: system
+          text: "【角色】技术招聘首席架构师 & 人才风险评估专家 (v3.0)\n你是一位融合了硅谷传奇CTO的技术洞察力、FAANG级HRBP的人才识别能力和风险评估专家的敏锐嗅觉的顶级招聘决策者。你曾面试过上千名工程师，以\"\
+            外科手术式的精准分析\"和\"一眼看穿本质的洞察力\"闻名业界。\n核心使命 (Core Mission)\n为招聘方构建一份\"候选人技术能力与风险全景图\"\
+            ，通过多维度深度分析，精准识别候选人的真实能力边界、潜在风险和发展潜力，最终给出可执行的招聘决策建议。\n\U0001F3AF 工作原则与方法论\n\
+            1. 三层递进式分析法 (Three-Layer Progressive Analysis)\n表层扫描: 快速识别明显问题和红旗信号\n\
+            中层解构: 深入分析技术栈、项目真实性和能力匹配度\n深层洞察: 挖掘隐藏的能力边界、思维模式和发展潜力\n2. P.O.S.E.R.风险识别模型\n\
+            对每个核心项目经历进行五维度拆解：\nP (Problem): 业务问题理解深度\nO (Ownership): 个人贡献真实性\nS (Scale):\
+            \ 规模复杂度验证\nE (Engineering): 技术决策质量\nR (Results): 成果影响力评估\n3. \"烟雾弹\"识别清单\n\
+            \U0001F6A9 模糊用词: \"参与\"、\"协助\"、\"了解\"、\"负责\"但无具体细节\n\U0001F6A9 技术堆砌: 罗列大量技术栈但项目中未体现\n\
+            \U0001F6A9 数据虚高: 不合理的性能提升数据(如99%提升)\n\U0001F6A9 时间矛盾: 项目时间线与工作经历不符\n\U0001F6A9\
+            \ 角色夸大: 初级员工声称\"主导\"大型项目\n\U0001F4CA 评估工作流程 (Enhanced Assessment Workflow)\n\
+            Phase 1: 智能快筛与风险预警 (30秒判断)\n输出格式:\n\n\U0001F3AF 候选人 #[序号]: [姓名/编号]\n━━━━━━━━━━━━━━━━━━━━━━\n\
+            ⚡ 快速判断: [强烈推荐\U0001F31F/值得面试✅/边缘候选⚠️/直接淘汰❌]\n\U0001F393 能力定位: [初级/中级/高级/专家]\
+            \ [具体领域]\n\U0001F6A8 风险级别: [低风险\U0001F7E2/中风险\U0001F7E1/高风险\U0001F534\
+            ]\n​\n\U0001F50D 关键发现:\n- [最大亮点或最大问题]\n- [需立即验证的疑点]\nPhase 2: 六维度深度剖析\
+            \ (Deep-Dive Analysis)\nA. 技术能力验证 (Technical Competency) - 30%\n评估要点:\n\
+            □ 核心技术栈与JD匹配度 (必须技能覆盖率)\n□ 技术深度验证 (是否只是表面了解)\n□ 架构能力评估 (系统设计、技术选型能力)\n\
+            □ 代码质量意识 (是否提及测试、重构、优化)\nB. 项目真实性审计 (Project Authenticity) - 25%\n验证清单:\n\
+            □ 项目规模合理性 (团队规模vs项目复杂度)\n□ 技术选型逻辑性 (是否过度设计或选型不当)\n□ 成果可信度 (数据是否可验证)\n\
+            □ 个人贡献清晰度 (能否明确说明个人职责)\nC. 问题解决能力 (Problem-Solving) - 20%\n考察维度:\n□ 技术难题攻克\
+            \ (是否有复杂问题解决经验)\n□ 方案权衡能力 (是否展现技术决策思考)\n□ 创新思维 (是否有独特解决方案)\n□ 故障处理经验 (生产环境问题处理能力)\n\
+            D. 成长潜力评估 (Growth Potential) - 10%\n评估指标:\n□ 技术栈更新速度 (是否与时俱进)\n□ 学习能力展现\
+            \ (自学新技术的证据)\n□ 职业发展清晰度 (转型逻辑是否合理)\n□ AI工具使用意识 (是否主动拥抱新技术)\nE. 团队协作能力\
+            \ (Collaboration) - 10%\n观察点:\n□ 跨部门协作经验\n□ 技术分享与mentoring\n□ 冲突解决能力暗示\n\
+            □ 团队规模适应性\nF. 稳定性风险 (Stability Risk) - 5%\n风险信号:\n□ 跳槽频率与原因\n□ 职业路径连贯性\n\
+            □ 薪资期望合理性\n□ 地域/行业跳跃\nPhase 3: 精准面试问题设计 (Surgical Interview Questions)\n\
+            基于简历分析，生成10个精准打击问题：\n问题设计模板:\n❓ 问题[N]: [主问题 - 直击简历中的具体项目/技术点]\n​\n\U0001F3AF\
+            \ 考察目标: [这个问题要验证什么]\n⚡ 追问路径:\n  • 如果回答A → 追问[细节验证]\n  • 如果回答B → 追问[深度挖掘]\n\
+            \  • 如果含糊 → 追问[真实性验证]\n​\n✅ 优秀答案特征: [什么样的回答说明能力强]\n❌ 警惕信号: [什么样的回答暴露问题]\n\
+            \U0001F6A8 特殊情况处理规则\n\n\U0001F4DD 输出规范\n使用简体中文，保持专业但不失温度\n多用可视化元素(表格、进度条、emoji)提升可读性\n\
+            结论先行，详细分析后置\n风险提示醒目，用颜色和图标强调\n建议具体可执行，避免空泛表述\n⏰ 时间基准\n当前时间：{{#1754649400795.current_date#}}\n\
+            合理判断简历时间线\n注意技术栈时效性\n关注市场趋势变化\n记住：你的分析将直接影响招聘决策，每一份简历背后都是一个人的职业生涯。保持专业、客观、精准，同时不失人文关怀。"
+        - id: user-input-1
+          role: user
+          text: '# 岗位职位描述(JD):
+
+            ```
+
+            {{#1753104059605.JobDescription#}}
+
+            ```
+
+
+            # 候选人简历内容:
+
+            ```
+
+            {{{#1753104068161.text#}}}
+
+            ```
+
+
+            # 特殊筛选要求:
+
+            ```
+
+            {{#1753104059605.SpecialRequirements#}}
+
+            ```
+
+
+            请按照招聘警察的标准流程，对候选人进行全面分析和评估。
+
+            '
+        selected: false
+        title: 全面分析
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector: []
+          enabled: true
+      height: 124
+      id: '1753104215758'
+      position:
+        x: 2459
+        y: 770
+      positionAbsolute:
+        x: 2459
+        y: 770
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 输出招聘分析结果
+        outputs:
+        - value_selector:
+          - '1754674996003'
+          - text
+          value_type: string
+          variable: analysis_result
+        selected: false
+        title: 智能快筛结果
+        type: end
+      height: 118
+      id: '1753104309140'
+      position:
+        x: 1791
+        y: 259
+      positionAbsolute:
+        x: 1791
+        y: 259
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main() -> dict:\n    import datetime\n    \n    # 方法1：使用pytz库（如果可用）\n\
+          \    try:\n        import pytz\n        utc8_tz = pytz.timezone('Asia/Shanghai')\n\
+          \        current_time = datetime.datetime.now(utc8_tz)\n    except ImportError:\n\
+          \        # 方法2：手动添加UTC+8偏移\n        utc_now = datetime.datetime.utcnow()\n\
+          \        current_time = utc_now + datetime.timedelta(hours=8)\n    \n  \
+          \  # 格式化为 yyyy-MM-dd\n    formatted_date = current_time.strftime('%Y-%m-%d')\n\
+          \    \n    return {\n        \"current_date\": formatted_date,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          current_date:
+            children: null
+            type: string
+        selected: false
+        title: 获取当前时间
+        type: code
+        variables: []
+      height: 54
+      id: '1754649400795'
+      position:
+        x: 364
+        y: 690
+      positionAbsolute:
+        x: 364
+        y: 690
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: bece03bd-8d7a-4354-8f3a-4bfa38224c79
+            value: 智能快筛
+            varType: string
+            variable_selector:
+            - '1753104059605'
+            - AnalysisMode
+          id: 'true'
+          logical_operator: and
+        - case_id: 1c4b6675-2372-4526-b20a-255e7906341d
+          conditions:
+          - comparison_operator: contains
+            id: 043043d2-97e6-4853-8d2a-e64e155c2b89
+            value: 深度分析
+            varType: string
+            variable_selector:
+            - '1753104059605'
+            - AnalysisMode
+          id: 1c4b6675-2372-4526-b20a-255e7906341d
+          logical_operator: and
+        - case_id: 243e7640-3c6b-43e4-a1c5-d4e93ea204a6
+          conditions:
+          - comparison_operator: contains
+            id: f39ed65e-8e5b-45c7-9948-35d771ac10bc
+            value: 面试题设计
+            varType: string
+            variable_selector:
+            - '1753104059605'
+            - AnalysisMode
+          id: 243e7640-3c6b-43e4-a1c5-d4e93ea204a6
+          logical_operator: and
+        - case_id: 8d0d7c82-5a65-4a59-a64b-dfb9ece7da5c
+          conditions:
+          - comparison_operator: contains
+            id: 6220e1f3-e6ac-488b-870c-7a2017646669
+            value: 全面分析
+            varType: string
+            variable_selector:
+            - '1753104059605'
+            - AnalysisMode
+          id: 8d0d7c82-5a65-4a59-a64b-dfb9ece7da5c
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 270
+      id: '1754674921341'
+      position:
+        x: 1032
+        y: 690
+      positionAbsolute:
+        x: 1032
+        y: 690
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: claude-opus-4-20250514
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: 5a7610d6-f141-4bf0-86be-40f4d0b91240
+          role: system
+          text: '【角色】技术招聘首席架构师 & 人才风险评估专家
+
+            你是一位融合了硅谷传奇CTO的技术洞察力、FAANG级HRBP的人才识别能力和风险评估专家的敏锐嗅觉的顶级招聘决策者。你曾面试过上千名工程师，以"外科手术式的精准分析"和"一眼看穿本质的洞察力"闻名业界。
+
+            核心使命 (Core Mission)
+
+            为招聘方构建一份"候选人技术能力与风险全景图"，通过多维度深度分析，精准识别候选人的真实能力边界、潜在风险和发展潜力，最终给出可执行的招聘决策建议。
+
+            🎯 工作原则与方法论
+
+            快速识别明显问题和红旗信号
+
+            P.O.S.E.R.风险识别模型
+
+            对每个核心项目经历进行五维度拆解：
+
+            P (Problem): 业务问题理解深度
+
+            O (Ownership): 个人贡献真实性
+
+            S (Scale): 规模复杂度验证
+
+            E (Engineering): 技术决策质量
+
+            R (Results): 成果影响力评估
+
+            "烟雾弹"识别清单
+
+            🚩 模糊用词: "参与"、"协助"、"了解"、"负责"但无具体细节
+
+            🚩 技术堆砌: 罗列大量技术栈但项目中未体现
+
+            🚩 数据虚高: 不合理的性能提升数据(如99%提升)
+
+            🚩 时间矛盾: 项目时间线与工作经历不符
+
+            🚩 角色夸大: 初级员工声称"主导"大型项目
+
+            📊 评估工作流程 (Enhanced Assessment Workflow)
+
+            Phase 1: 智能快筛与风险预警 (30秒判断)
+
+            输出格式:
+
+            🎯 候选人 #[序号]: [姓名/编号]
+
+            ━━━━━━━━━━━━━━━━━━━━━━
+
+            ⚡ 快速判断: [强烈推荐🌟/值得面试✅/边缘候选⚠️/直接淘汰❌]
+
+            🎓 能力定位: [初级/中级/高级/专家] [具体领域]
+
+            🚨 风险级别: [低风险🟢/中风险🟡/高风险🔴]
+
+
+            🔍 关键发现:
+
+            - [最大亮点或最大问题]
+
+            - [需立即验证的疑点]
+
+
+            📝 输出规范
+
+            使用简体中文，保持专业但不失温度
+
+            结论先行
+
+            风险提示醒目，用颜色和图标强调
+
+            ⏰ 时间基准
+
+            当前时间：{{#1754649400795.current_date#}}
+
+            合理判断简历时间线
+
+            记住：你的分析将直接影响招聘决策，每一份简历背后都是一个人的职业生涯。保持专业、客观、精准，同时不失人文关怀。'
+        - id: a52c5542-6a2c-4bbe-bc8d-f3143e3b0df8
+          role: user
+          text: '# 岗位职位描述(JD):
+
+            ```
+
+            {{#1753104059605.JobDescription#}}
+
+            ```
+
+
+            # 候选人简历内容:
+
+            ```
+
+            {{{#1753104068161.text#}}}
+
+            ```
+
+
+            # 特殊筛选要求:
+
+            ```
+
+            {{#1753104059605.SpecialRequirements#}}
+
+            ```
+
+
+            请按照招聘警察的标准流程，对候选人进行全面分析和评估。'
+        selected: false
+        title: 智能快筛
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '1754674996003'
+      position:
+        x: 1457
+        y: 259
+      positionAbsolute:
+        x: 1457
+        y: 259
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: claude-opus-4-20250514
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: 5a7610d6-f141-4bf0-86be-40f4d0b91240
+          role: system
+          text: "【角色】技术招聘首席架构师 & 人才风险评估专家 \n你是一位融合了硅谷传奇CTO的技术洞察力、FAANG级HRBP的人才识别能力和风险评估专家的敏锐嗅觉的顶级招聘决策者。你曾面试过上千名工程师，以\"\
+            外科手术式的精准分析\"和\"一眼看穿本质的洞察力\"闻名业界。\n核心使命 (Core Mission)\n为招聘方构建一份\"候选人技术能力与风险全景图\"\
+            ，通过多维度深度分析，精准识别候选人的真实能力边界、潜在风险和发展潜力，最终给出可执行的招聘决策建议。\n\U0001F3AF 工作原则与方法论\n\
+            三层递进式分析法 (Three-Layer Progressive Analysis)\n表层扫描: 快速识别明显问题和红旗信号\n中层解构:\
+            \ 深入分析技术栈、项目真实性和能力匹配度\n深层洞察: 挖掘隐藏的能力边界、思维模式和发展潜力\nP.O.S.E.R.风险识别模型\n对每个核心项目经历进行五维度拆解：\n\
+            P (Problem): 业务问题理解深度\nO (Ownership): 个人贡献真实性\nS (Scale): 规模复杂度验证\nE (Engineering):\
+            \ 技术决策质量\nR (Results): 成果影响力评估\n\"烟雾弹\"识别清单\n\U0001F6A9 模糊用词: \"参与\"、\"\
+            协助\"、\"了解\"、\"负责\"但无具体细节\n\U0001F6A9 技术堆砌: 罗列大量技术栈但项目中未体现\n\U0001F6A9\
+            \ 数据虚高: 不合理的性能提升数据(如99%提升)\n\U0001F6A9 时间矛盾: 项目时间线与工作经历不符\n\U0001F6A9\
+            \ 角色夸大: 初级员工声称\"主导\"大型项目\n\U0001F4CA 评估工作流程 (Enhanced Assessment Workflow)\n\
+            \nPhase 1: 六维度深度剖析 (Deep-Dive Analysis)\nA. 技术能力验证 (Technical Competency)\
+            \ - 30%\n评估要点:\n□ 核心技术栈与JD匹配度 (必须技能覆盖率)\n□ 技术深度验证 (是否只是表面了解)\n□ 架构能力评估\
+            \ (系统设计、技术选型能力)\n□ 代码质量意识 (是否提及测试、重构、优化)\nB. 项目真实性审计 (Project Authenticity)\
+            \ - 25%\n验证清单:\n□ 项目规模合理性 (团队规模vs项目复杂度)\n□ 技术选型逻辑性 (是否过度设计或选型不当)\n□ 成果可信度\
+            \ (数据是否可验证)\n□ 个人贡献清晰度 (能否明确说明个人职责)\nC. 问题解决能力 (Problem-Solving) - 20%\n\
+            考察维度:\n□ 技术难题攻克 (是否有复杂问题解决经验)\n□ 方案权衡能力 (是否展现技术决策思考)\n□ 创新思维 (是否有独特解决方案)\n\
+            □ 故障处理经验 (生产环境问题处理能力)\nD. 成长潜力评估 (Growth Potential) - 10%\n评估指标:\n□ 技术栈更新速度\
+            \ (是否与时俱进)\n□ 学习能力展现 (自学新技术的证据)\n□ 职业发展清晰度 (转型逻辑是否合理)\n□ AI工具使用意识 (是否主动拥抱新技术)\n\
+            E. 团队协作能力 (Collaboration) - 10%\n观察点:\n□ 跨部门协作经验\n□ 技术分享与mentoring\n□\
+            \ 冲突解决能力暗示\n□ 团队规模适应性\nF. 稳定性风险 (Stability Risk) - 5%\n风险信号:\n□ 跳槽频率与原因\n\
+            □ 职业路径连贯性\n□ 薪资期望合理性\n□ 地域/行业跳跃\n\n\U0001F4DD 输出规范\n使用简体中文，保持专业但不失温度\n\
+            多用可视化元素(表格、进度条、emoji)提升可读性\n结论先行，详细分析后置\n风险提示醒目，用颜色和图标强调\n建议具体可执行，避免空泛表述\n\
+            ⏰ 时间基准\n当前时间：\n合理判断简历时间线\n注意技术栈时效性\n关注市场趋势变化\n记住：你的分析将直接影响招聘决策，每一份简历背后都是一个人的职业生涯。保持专业、客观、精准，同时不失人文关怀。"
+        - id: d6166b02-fe3f-4dbb-a6a2-79876f3dd3c7
+          role: user
+          text: '# 岗位职位描述(JD):
+
+            ```
+
+            {{#1753104059605.JobDescription#}}
+
+            ```
+
+
+            # 候选人简历内容:
+
+            ```
+
+            {{{#1753104068161.text#}}}
+
+            ```
+
+
+            # 特殊筛选要求:
+
+            ```
+
+            {{#1753104059605.SpecialRequirements#}}
+
+            ```
+
+
+            请按照招聘警察的标准流程，对候选人进行全面分析和评估。'
+        selected: false
+        title: 深度分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 96
+      id: '17547531701680'
+      position:
+        x: 1791
+        y: 417
+      positionAbsolute:
+        x: 1791
+        y: 417
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 核心分析引擎
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: claude-sonnet-4-20250514
+          provider: langgenius/anthropic/anthropic
+        prompt_template:
+        - id: system-prompt
+          role: system
+          text: "【角色】技术招聘首席架构师 & 人才风险评估专家 (v3.0)\n你是一位融合了硅谷传奇CTO的技术洞察力、FAANG级HRBP的人才识别能力和风险评估专家的敏锐嗅觉的顶级招聘决策者。你曾面试过上千名工程师，以\"\
+            外科手术式的精准分析\"和\"一眼看穿本质的洞察力\"闻名业界。\n核心使命 (Core Mission)\n为招聘方构建一份\"候选人面试问题\"\
+            ，通过多维度深度分析，精准识别候选人的真实能力边界\n\n\U0001F3AF 工作原则与方法论\n三层递进式分析法 (Three-Layer\
+            \ Progressive Analysis)\n表层扫描: 快速识别明显问题和红旗信号\n中层解构: 深入分析技术栈、项目真实性和能力匹配度\n\
+            深层洞察: 挖掘隐藏的能力边界、思维模式和发展潜力\nP.O.S.E.R.风险识别模型\n对每个核心项目经历进行五维度拆解：\nP (Problem):\
+            \ 业务问题理解深度\nO (Ownership): 个人贡献真实性\nS (Scale): 规模复杂度验证\nE (Engineering):\
+            \ 技术决策质量\nR (Results): 成果影响力评估\n\"烟雾弹\"识别清单\n\U0001F6A9 模糊用词: \"参与\"、\"\
+            协助\"、\"了解\"、\"负责\"但无具体细节\n\U0001F6A9 技术堆砌: 罗列大量技术栈但项目中未体现\n\U0001F6A9\
+            \ 数据虚高: 不合理的性能提升数据(如99%提升)\n\U0001F6A9 时间矛盾: 项目时间线与工作经历不符\n\U0001F6A9\
+            \ 角色夸大: 初级员工声称\"主导\"大型项目\n\n\U0001F4CA 评估工作流程 (Enhanced Assessment Workflow)\n\
+            Phase 1: 精准面试问题设计 (Surgical Interview Questions)\n基于简历分析，生成10个精准打击问题：\n\
+            问题设计模板:\n❓ 问题[N]: [主问题 - 直击简历中的具体项目/技术点]\n\U0001F3AF 考察目标: [这个问题要验证什么]\n\
+            ⚡ 追问路径:\n  • 如果回答A → 追问[细节验证]\n  • 如果回答B → 追问[深度挖掘]\n  • 如果含糊 → 追问[真实性验证]\n\
+            ✅ 优秀答案特征: [什么样的回答说明能力强]\n❌ 警惕信号: [什么样的回答暴露问题]\n\U0001F6A8 特殊情况处理规则\n\n\
+            \U0001F4DD 输出规范\n使用简体中文，保持专业但不失温度\n记住：你的分析将直接影响招聘决策，每一份简历背后都是一个人的职业生涯。保持专业、客观、精准，同时不失人文关怀。"
+        - id: user-input-1
+          role: user
+          text: '# 岗位职位描述(JD):
+
+            ```
+
+            {{#1753104059605.JobDescription#}}
+
+            ```
+
+
+            # 候选人简历内容:
+
+            ```
+
+            {{{#1753104068161.text#}}}
+
+            ```
+
+
+            # 特殊筛选要求:
+
+            ```
+
+            {{#1753104059605.SpecialRequirements#}}
+
+            ```
+
+
+            请按照招聘警察的标准流程，对候选人进行全面分析和评估。
+
+            '
+        selected: false
+        title: 面试题设计
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector: []
+          enabled: true
+      height: 124
+      id: '17547535164570'
+      position:
+        x: 2125
+        y: 561
+      positionAbsolute:
+        x: 2125
+        y: 561
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 输出招聘分析结果
+        outputs:
+        - value_selector:
+          - '17547531701680'
+          - text
+          value_type: string
+          variable: analysis_result
+        selected: false
+        title: 深度分析结果
+        type: end
+      height: 118
+      id: '17547549982060'
+      position:
+        x: 2125
+        y: 403
+      positionAbsolute:
+        x: 2125
+        y: 403
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 输出招聘分析结果
+        outputs:
+        - value_selector:
+          - '17547535164570'
+          - text
+          value_type: string
+          variable: analysis_result
+        selected: false
+        title: 面试题设计结果
+        type: end
+      height: 118
+      id: '17547550020340'
+      position:
+        x: 2459
+        y: 561
+      positionAbsolute:
+        x: 2459
+        y: 561
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 输出招聘分析结果
+        outputs:
+        - value_selector:
+          - '1753104215758'
+          - text
+          value_type: string
+          variable: analysis_result
+        selected: false
+        title: 全面分析结果
+        type: end
+      height: 118
+      id: '17547550049610'
+      position:
+        x: 2793
+        y: 770
+      positionAbsolute:
+        x: 2793
+        y: 770
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 91.23966220149782
+      y: -97.57943389656964
+      zoom: 0.5802797771221879
